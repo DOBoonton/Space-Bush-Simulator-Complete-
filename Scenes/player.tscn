@@ -1,0 +1,188 @@
+[gd_scene load_steps=21 format=3 uid="uid://cv72hw2qtd2cu"]
+
+[ext_resource type="Script" path="res://Code/player.gd" id="1_2eb5f"]
+[ext_resource type="PackedScene" uid="uid://fore06to3qwb" path="res://Scenes/explosion.tscn" id="2_mj1y7"]
+[ext_resource type="Texture2D" uid="uid://bkl4pt4djqskh" path="res://Laser.png" id="3_sdmsl"]
+[ext_resource type="Texture2D" uid="uid://cj636pi4ij81c" path="res://Sprites/Humanoids/SpaceMarine.png" id="3_wcfjc"]
+[ext_resource type="AudioStream" uid="uid://1vgtht6q2gog" path="res://Sounds/LazRifle.wav" id="4_3u8bi"]
+[ext_resource type="AudioStream" uid="uid://kwkos84e0uy3" path="res://Sounds/Enter.wav" id="5_f8m6i"]
+[ext_resource type="AudioStream" uid="uid://ctba1pia5h0co" path="res://Sounds/Radar.wav" id="6_aoc60"]
+[ext_resource type="Texture2D" uid="uid://bcbyrdcalqvq8" path="res://Sprites/HUD/instructionsSignJob.png" id="6_ygwgi"]
+[ext_resource type="AudioStream" uid="uid://bfxqlalagouix" path="res://Sounds/bombTick.wav" id="7_v4gsg"]
+[ext_resource type="AudioStream" uid="uid://dtlvtxljy66wn" path="res://Sounds/bombDefuse.wav" id="8_ivs7i"]
+[ext_resource type="AudioStream" uid="uid://bgwjucdfgxhq6" path="res://Sounds/explosion.wav" id="9_vit56"]
+[ext_resource type="Theme" uid="uid://cp6je6ot62dfc" path="res://Fonts/GALACTIC VANGUARDIAN.tres" id="12_ihnvd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdycr"]
+atlas = ExtResource("3_wcfjc")
+region = Rect2(130, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1lbu"]
+atlas = ExtResource("3_sdmsl")
+region = Rect2(0, 8, 500, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7ns8"]
+atlas = ExtResource("3_wcfjc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0231"]
+atlas = ExtResource("3_sdmsl")
+region = Rect2(0, 9, 500, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buctk"]
+atlas = ExtResource("3_wcfjc")
+region = Rect2(65, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je1p4"]
+atlas = ExtResource("3_sdmsl")
+region = Rect2(0, 0, 500, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnlog"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdycr")
+}],
+"loop": true,
+"name": &"charging",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1lbu")
+}],
+"loop": true,
+"name": &"chargingLaser",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7ns8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0231")
+}],
+"loop": true,
+"name": &"idleLaser",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buctk")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je1p4")
+}],
+"loop": true,
+"name": &"shootLaser",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nukrt"]
+radius = 19.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_2eb5f")
+Explosion = ExtResource("2_mj1y7")
+
+[node name="LaserSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(250, 7)
+sprite_frames = SubResource("SpriteFrames_vnlog")
+animation = &"idleLaser"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vnlog")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-11, 0)
+shape = SubResource("CircleShape2D_nukrt")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 7)
+target_position = Vector2(500, 0)
+
+[node name="ChargeTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="LazRifle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3u8bi")
+volume_db = -25.0
+pitch_scale = 0.6
+
+[node name="Enter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_f8m6i")
+volume_db = -20.0
+
+[node name="Help" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_aoc60")
+volume_db = -20.0
+pitch_scale = 1.5
+
+[node name="BombTick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_v4gsg")
+volume_db = -20.0
+
+[node name="BombDefuse" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ivs7i")
+volume_db = -10.0
+pitch_scale = 1.2
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_vit56")
+volume_db = -10.0
+
+[node name="Instructions" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(577, 324.5)
+scale = Vector2(3, 3)
+texture = ExtResource("6_ygwgi")
+
+[node name="HelpTime" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="DeathTime" type="Timer" parent="."]
+one_shot = true
+
+[node name="WaitTime" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[node name="BombHold" type="Node2D" parent="."]
+position = Vector2(10, 0)
+
+[node name="BombText" type="RichTextLabel" parent="BombHold"]
+anchors_preset = -1
+anchor_top = 0.00347233
+anchor_right = 0.681818
+anchor_bottom = 0.00347233
+offset_left = -32.0
+offset_top = 14.0
+offset_right = -8.0
+offset_bottom = 42.0
+scale = Vector2(2, 2)
+theme = ExtResource("12_ihnvd")
+theme_override_font_sizes/normal_font_size = 14
+text = "15"
+scroll_active = false
+autowrap_mode = 0
+
+[connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]
+[connection signal="timeout" from="HelpTime" to="." method="_on_help_time_timeout"]
+[connection signal="timeout" from="DeathTime" to="." method="_on_death_time_timeout"]
+[connection signal="timeout" from="WaitTime" to="." method="_on_wait_time_timeout"]

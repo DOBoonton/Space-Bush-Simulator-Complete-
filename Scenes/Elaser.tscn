@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=3 uid="uid://cxd726m3a1smn"]
+
+[ext_resource type="Script" path="res://Code/elaser.gd" id="1_8n07x"]
+[ext_resource type="Script" path="res://Code/explosion.gd" id="2_lu4qp"]
+[ext_resource type="Texture2D" uid="uid://bk0tesmbih8ty" path="res://Sprites/Laser.png" id="3_xg7qn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru5qg"]
+atlas = ExtResource("3_xg7qn")
+region = Rect2(68, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw6wd"]
+atlas = ExtResource("3_xg7qn")
+region = Rect2(51, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd7vd"]
+atlas = ExtResource("3_xg7qn")
+region = Rect2(34, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvb0e"]
+atlas = ExtResource("3_xg7qn")
+region = Rect2(17, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvjep"]
+atlas = ExtResource("3_xg7qn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quq1c"]
+atlas = ExtResource("3_xg7qn")
+region = Rect2(85, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twomy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru5qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw6wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd7vd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvb0e")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_vvjep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw6wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru5qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quq1c")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 16.0
+}]
+
+[sub_resource type="PackedScene" id="PackedScene_ujp73"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(1, 0, 10, 9, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("Explosion", "script", "Node2D", "AnimatedSprite2D", "scale", "sprite_frames", "animation", "autoplay", "frame_progress", "_on_animated_sprite_2d_animation_finished", "animation_looped"),
+"node_count": 2,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 3, 3, -1, 5, 4, 1, 5, 2, 6, 3, 7, 4, 8, 5, 0),
+"variants": [ExtResource("2_lu4qp"), Vector2(3, 3), SubResource("SpriteFrames_twomy"), &"explosion", "explosion", 0.655119],
+"version": 3
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_inahu"]
+radius = 11.2
+
+[node name="ELaser" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_8n07x")
+Explosion = SubResource("PackedScene_ujp73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 4.76837e-07)
+rotation = 1.5708
+scale = Vector2(5, 5)
+texture = ExtResource("3_xg7qn")
+region_enabled = true
+region_rect = Rect2(85, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_inahu")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

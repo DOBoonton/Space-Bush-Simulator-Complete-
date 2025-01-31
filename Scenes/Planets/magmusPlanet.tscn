@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxsl72noxky60"]
+
+[ext_resource type="Script" path="res://Code/Planets/magmusPlanet.gd" id="1_yepym"]
+[ext_resource type="Texture2D" uid="uid://dtw0xln1x51ms" path="res://Sprites/Planets.png" id="2_g2i2d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_deow1"]
+radius = 271.97
+
+[node name="Magmus" type="Area2D" groups=["Obstacle"]]
+script = ExtResource("1_yepym")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("2_g2i2d")
+region_enabled = true
+region_rect = Rect2(128, 0, 64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_deow1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

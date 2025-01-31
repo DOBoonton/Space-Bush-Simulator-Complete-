@@ -1,0 +1,208 @@
+[gd_scene load_steps=26 format=3 uid="uid://bn878j7owrefb"]
+
+[ext_resource type="Script" path="res://Code/Surfaces/magmus.gd" id="1_vkgho"]
+[ext_resource type="Texture2D" uid="uid://cim8853etg8in" path="res://Sprites/Backgrounds/Magmus.png" id="2_rij4r"]
+[ext_resource type="Texture2D" uid="uid://t7yr8cdcvddk" path="res://Sprites/Player Ships/beaterShip.png" id="3_vfsb5"]
+[ext_resource type="Texture2D" uid="uid://bj3l7n0sfgibr" path="res://Sprites/Player Ships/basicShip.png" id="4_tegy5"]
+[ext_resource type="Texture2D" uid="uid://d3l1tse6xs64u" path="res://Sprites/Player Ships/transportShip.png" id="5_vh5ly"]
+[ext_resource type="Texture2D" uid="uid://cokouawxpy1v2" path="res://Sprites/Player Ships/interstellarCosmOilTransporter.png" id="6_2ofwu"]
+[ext_resource type="Texture2D" uid="uid://djnpkxbnrsan" path="res://Sprites/Player Ships/blackHawkShip.png" id="7_3n35t"]
+[ext_resource type="Texture2D" uid="uid://cm3kdkd0nolam" path="res://Sprites/Player Ships/artemisShip.png" id="8_mxapw"]
+[ext_resource type="PackedScene" uid="uid://cfr01y2dvabae" path="res://Scenes/player.tscn" id="9_3xicg"]
+[ext_resource type="PackedScene" uid="uid://dt4lbv0tfoncf" path="res://Scenes/hud.tscn" id="10_shu6f"]
+[ext_resource type="PackedScene" uid="uid://cr0cb6fi43jaq" path="res://Scenes/music.tscn" id="11_hxsm2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7l5b"]
+atlas = ExtResource("3_vfsb5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18svn"]
+atlas = ExtResource("3_vfsb5")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8sfq"]
+atlas = ExtResource("4_tegy5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_788am"]
+atlas = ExtResource("4_tegy5")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri3ub"]
+atlas = ExtResource("5_vh5ly")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt21x"]
+atlas = ExtResource("5_vh5ly")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o1bn"]
+atlas = ExtResource("6_2ofwu")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cch32"]
+atlas = ExtResource("6_2ofwu")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cjlf"]
+atlas = ExtResource("7_3n35t")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26nab"]
+atlas = ExtResource("7_3n35t")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2181x"]
+atlas = ExtResource("8_mxapw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an1yn"]
+atlas = ExtResource("8_mxapw")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkwbh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7l5b")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18svn")
+}],
+"loop": true,
+"name": &"1F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8sfq")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_788am")
+}],
+"loop": true,
+"name": &"2F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri3ub")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt21x")
+}],
+"loop": true,
+"name": &"3F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o1bn")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cch32")
+}],
+"loop": true,
+"name": &"4F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cjlf")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26nab")
+}],
+"loop": true,
+"name": &"5F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2181x")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an1yn")
+}],
+"loop": true,
+"name": &"6F",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_esshn"]
+radius = 158.269
+
+[node name="Magmus" type="Node2D"]
+script = ExtResource("1_vkgho")
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(577.579, 324)
+scale = Vector2(1.97561, 1.97561)
+texture = ExtResource("2_rij4r")
+
+[node name="Pit" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="Danger" type="CollisionPolygon2D" parent="Pit"]
+polygon = PackedVector2Array(-2, 161, -2, 161, 95, 167, 165, 131, 193, 129, 222, 136, 242, 136, 330, 113, 359, 115, 421, 137, 441, 135, 482, 122, 505, 105, 521, 113, 579, 139, 596, 137, 619, 147, 705, 119, 723, 124, 773, 134, 787, 138, 815, 158, 848, 175, 868, 187, 876, 191, 932, 184, 960, 186, 1000, 168, 1015, 155, 1033, 146, 1065, 145, 1074, 149, 1081, 150, 1093, 147, 1113, 143, 1125, 144, 1136, 149, 1142, 157, 1150, 165, 1158, 171, 1164, 168, 1163, -2, -15, -6, -14, 152)
+
+[node name="Vehicle" type="Area2D" parent="."]
+position = Vector2(1157, 596)
+rotation = 1.5708
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Vehicle"]
+position = Vector2(-8.74228e-07, 20)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_gkwbh")
+animation = &"4F"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vehicle"]
+shape = SubResource("CircleShape2D_esshn")
+
+[node name="ZombieTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Player" parent="." instance=ExtResource("9_3xicg")]
+position = Vector2(943, 527)
+
+[node name="Hud" parent="." instance=ExtResource("10_shu6f")]
+
+[node name="Music" parent="." instance=ExtResource("11_hxsm2")]
+
+[node name="Night" type="ColorRect" parent="."]
+offset_right = 1157.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0)
+
+[connection signal="body_entered" from="Vehicle" to="." method="_on_vehicle_body_entered"]
+[connection signal="timeout" from="ZombieTimer" to="." method="_on_zombie_timer_timeout"]

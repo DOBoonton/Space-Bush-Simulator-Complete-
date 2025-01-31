@@ -1,0 +1,218 @@
+[gd_scene load_steps=27 format=3 uid="uid://batp52yso52yx"]
+
+[ext_resource type="Script" path="res://Code/Surfaces/goldalis.gd" id="1_qx1oh"]
+[ext_resource type="Texture2D" uid="uid://bgtkbljrksy3n" path="res://Sprites/Backgrounds/Goldalis/Goldalis.png" id="2_7yykn"]
+[ext_resource type="Texture2D" uid="uid://cm3iy15v0vlg8" path="res://Sprites/Backgrounds/Goldalis/Goldalis(Fog).png" id="3_dw6mt"]
+[ext_resource type="Texture2D" uid="uid://t7yr8cdcvddk" path="res://Sprites/Player Ships/beaterShip.png" id="4_jdw1t"]
+[ext_resource type="Texture2D" uid="uid://bj3l7n0sfgibr" path="res://Sprites/Player Ships/basicShip.png" id="5_rsr6q"]
+[ext_resource type="Texture2D" uid="uid://d3l1tse6xs64u" path="res://Sprites/Player Ships/transportShip.png" id="6_7oo81"]
+[ext_resource type="Texture2D" uid="uid://cokouawxpy1v2" path="res://Sprites/Player Ships/interstellarCosmOilTransporter.png" id="7_wx5b5"]
+[ext_resource type="Texture2D" uid="uid://djnpkxbnrsan" path="res://Sprites/Player Ships/blackHawkShip.png" id="8_637jm"]
+[ext_resource type="Texture2D" uid="uid://cm3kdkd0nolam" path="res://Sprites/Player Ships/artemisShip.png" id="9_j4kgq"]
+[ext_resource type="PackedScene" uid="uid://cfr01y2dvabae" path="res://Scenes/player.tscn" id="10_volbb"]
+[ext_resource type="PackedScene" uid="uid://dt4lbv0tfoncf" path="res://Scenes/hud.tscn" id="11_rnv5h"]
+[ext_resource type="PackedScene" uid="uid://cr0cb6fi43jaq" path="res://Scenes/music.tscn" id="12_pk4ks"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7l5b"]
+atlas = ExtResource("4_jdw1t")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18svn"]
+atlas = ExtResource("4_jdw1t")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8sfq"]
+atlas = ExtResource("5_rsr6q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_788am"]
+atlas = ExtResource("5_rsr6q")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri3ub"]
+atlas = ExtResource("6_7oo81")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt21x"]
+atlas = ExtResource("6_7oo81")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o1bn"]
+atlas = ExtResource("7_wx5b5")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cch32"]
+atlas = ExtResource("7_wx5b5")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cjlf"]
+atlas = ExtResource("8_637jm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26nab"]
+atlas = ExtResource("8_637jm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2181x"]
+atlas = ExtResource("9_j4kgq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an1yn"]
+atlas = ExtResource("9_j4kgq")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkwbh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7l5b")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18svn")
+}],
+"loop": true,
+"name": &"1F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8sfq")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_788am")
+}],
+"loop": true,
+"name": &"2F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri3ub")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt21x")
+}],
+"loop": true,
+"name": &"3F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o1bn")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cch32")
+}],
+"loop": true,
+"name": &"4F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cjlf")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26nab")
+}],
+"loop": true,
+"name": &"5F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2181x")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an1yn")
+}],
+"loop": true,
+"name": &"6F",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_esshn"]
+radius = 158.269
+
+[node name="Goldalis" type="Node2D"]
+script = ExtResource("1_qx1oh")
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(577.579, 324)
+scale = Vector2(1.97561, 1.97561)
+texture = ExtResource("2_7yykn")
+
+[node name="Fog" type="Sprite2D" parent="."]
+position = Vector2(577.579, 324)
+scale = Vector2(4, 4)
+texture = ExtResource("3_dw6mt")
+
+[node name="Pit" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="Danger" type="CollisionPolygon2D" parent="Pit"]
+polygon = PackedVector2Array(293, -1, 255, 49, 255, 65, 272, 85, 222, 102, 194, 127, 173, 136, 151, 157, 148, 170, 133, 182, 46, 185, 47, 381, 131, 381, 162, 419, 194, 422, 218, 433, 228, 427, 249, 458, 283, 462, 310, 466, 352, 479, 392, 494, 450, 503, 489, 498, 543, 473, 630, 482, 647, 483, 648, 566, 618, 575, 600, 593, 584, 598, 553, 599, 507, 648, 506, 695, 834, 698, 831, 646, 817, 635, 806, 613, 803, 597, 787, 595, 760, 597, 746, 585, 744, 576, 719, 550, 717, 489, 782, 489, 841, 489, 883, 475, 901, 455, 942, 457, 980, 461, 1039, 391, 1016, 316, 1063, 206, 1006, 154, 962, 101, 885, 92, 871, 1, 1074, -322, 1368, 98, 1194, 859, -124, 835, -76, -274, 265, -166)
+
+[node name="Vehicle" type="Area2D" parent="."]
+position = Vector2(63, 291)
+rotation = -1.5708
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Vehicle"]
+position = Vector2(-8.74228e-07, 20)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_gkwbh")
+animation = &"4F"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vehicle"]
+shape = SubResource("CircleShape2D_esshn")
+
+[node name="ZombieTimer" type="Timer" parent="."]
+wait_time = 12.0
+
+[node name="Player" parent="." instance=ExtResource("10_volbb")]
+position = Vector2(289, 276)
+
+[node name="Hud" parent="." instance=ExtResource("11_rnv5h")]
+
+[node name="Music" parent="." instance=ExtResource("12_pk4ks")]
+
+[node name="Night" type="ColorRect" parent="."]
+offset_right = 1157.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0)
+
+[node name="FogTime" type="Timer" parent="."]
+wait_time = 64.0
+autostart = true
+
+[connection signal="body_entered" from="Vehicle" to="." method="_on_vehicle_body_entered"]
+[connection signal="timeout" from="ZombieTimer" to="." method="_on_zombie_timer_timeout"]

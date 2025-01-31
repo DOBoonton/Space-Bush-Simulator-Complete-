@@ -1,0 +1,223 @@
+[gd_scene load_steps=26 format=3 uid="uid://bn2da6jlqhbcp"]
+
+[ext_resource type="Script" path="res://Code/Surfaces/abyssariLarge.gd" id="1_3ww3n"]
+[ext_resource type="Texture2D" uid="uid://dy4yh8jqgw4ba" path="res://Sprites/Backgrounds/Abyssari.png" id="2_87ay4"]
+[ext_resource type="Texture2D" uid="uid://t7yr8cdcvddk" path="res://Sprites/Player Ships/beaterShip.png" id="3_e18bk"]
+[ext_resource type="Texture2D" uid="uid://bj3l7n0sfgibr" path="res://Sprites/Player Ships/basicShip.png" id="4_khhdc"]
+[ext_resource type="Texture2D" uid="uid://d3l1tse6xs64u" path="res://Sprites/Player Ships/transportShip.png" id="5_lby6t"]
+[ext_resource type="Texture2D" uid="uid://cokouawxpy1v2" path="res://Sprites/Player Ships/interstellarCosmOilTransporter.png" id="6_ib065"]
+[ext_resource type="Texture2D" uid="uid://djnpkxbnrsan" path="res://Sprites/Player Ships/blackHawkShip.png" id="7_jqvbs"]
+[ext_resource type="Texture2D" uid="uid://cm3kdkd0nolam" path="res://Sprites/Player Ships/artemisShip.png" id="8_qhsqh"]
+[ext_resource type="PackedScene" uid="uid://cv72hw2qtd2cu" path="res://Scenes/player.tscn" id="9_h3j7m"]
+[ext_resource type="PackedScene" uid="uid://bpg452rfn7yr5" path="res://Scenes/hud.tscn" id="10_mvyer"]
+[ext_resource type="PackedScene" uid="uid://cpb4fofhmv6le" path="res://Scenes/music.tscn" id="11_hjn38"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7l5b"]
+atlas = ExtResource("3_e18bk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18svn"]
+atlas = ExtResource("3_e18bk")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8sfq"]
+atlas = ExtResource("4_khhdc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_788am"]
+atlas = ExtResource("4_khhdc")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri3ub"]
+atlas = ExtResource("5_lby6t")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt21x"]
+atlas = ExtResource("5_lby6t")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o1bn"]
+atlas = ExtResource("6_ib065")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cch32"]
+atlas = ExtResource("6_ib065")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cjlf"]
+atlas = ExtResource("7_jqvbs")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26nab"]
+atlas = ExtResource("7_jqvbs")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2181x"]
+atlas = ExtResource("8_qhsqh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an1yn"]
+atlas = ExtResource("8_qhsqh")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkwbh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7l5b")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18svn")
+}],
+"loop": true,
+"name": &"1F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8sfq")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_788am")
+}],
+"loop": true,
+"name": &"2F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri3ub")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt21x")
+}],
+"loop": true,
+"name": &"3F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o1bn")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cch32")
+}],
+"loop": true,
+"name": &"4F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cjlf")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26nab")
+}],
+"loop": true,
+"name": &"5F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2181x")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an1yn")
+}],
+"loop": true,
+"name": &"6F",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_esshn"]
+radius = 158.269
+
+[node name="Abyssari" type="Node2D"]
+script = ExtResource("1_3ww3n")
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(577.579, 324)
+scale = Vector2(1.97561, 1.97561)
+texture = ExtResource("2_87ay4")
+
+[node name="Pit" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Danger" type="CollisionPolygon2D" parent="Pit"]
+polygon = PackedVector2Array(135, 452, 130, 463, 131, 480, 141, 497, 151, 497, 157, 507, 167, 540, 175, 558, 183, 566, 198, 570, 218, 570, 236, 569, 270, 562, 300, 551, 308, 551, 314, 559, 315, 573, 322, 577, 336, 569, 345, 569, 351, 571, 356, 567, 363, 559, 363, 551, 352, 541, 347, 536, 344, 529, 372, 480, 385, 469, 388, 472, 413, 464, 420, 445, 427, 436, 438, 424, 448, 422, 460, 422, 482, 424, 510, 363, 541, 251, 547, 217, 540, 193, 550, 197, 553, 221, 574, 187, 574, 171, 553, 132, 548, 116, 527, 104, 535, 92, 500, 92, 419, 67, 405, 68, 393, 85, 370, 91, 376, 120, 350, 135, 310, 176, 305, 218, 305, 247, 297, 279, 305, 337, 256, 409, 188, 420, 180, 443, 195, 443, 184, 460, 153, 468)
+
+[node name="Pit2" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Danger" type="CollisionPolygon2D" parent="Pit2"]
+polygon = PackedVector2Array(820, 648, 830, 555, 786, 506, 785, 500, 792, 495, 798, 501, 798, 505, 828, 507, 822, 445, 815, 395, 827, 329, 826, 297, 940, 298, 946, 354, 963, 392, 999, 349, 1035, 346, 1044, 350, 1047, 371, 1030, 463, 1042, 481, 1040, 509, 1021, 538, 1031, 566, 1065, 594, 1093, 607, 1118, 618, 1144, 648)
+
+[node name="Pit3" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Danger" type="CollisionPolygon2D" parent="Pit3"]
+polygon = PackedVector2Array(803, 223, 807, 128, 794, 97, 804, 53, 804, 43, 781, -5, 952, -3, 925, 70, 927, 147, 988, 160, 927, 184, 932, 223)
+
+[node name="Vehicle" type="Area2D" parent="."]
+position = Vector2(-98, 351)
+rotation = -1.5708
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Vehicle"]
+position = Vector2(-8.74228e-07, 20)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_gkwbh")
+animation = &"4F"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vehicle"]
+shape = SubResource("CircleShape2D_esshn")
+
+[node name="ZombieTimer" type="Timer" parent="."]
+wait_time = 6.0
+
+[node name="Player" parent="." instance=ExtResource("9_h3j7m")]
+position = Vector2(163, 348)
+
+[node name="Hud" parent="." instance=ExtResource("10_mvyer")]
+
+[node name="Music" parent="." instance=ExtResource("11_hjn38")]
+
+[node name="Night" type="ColorRect" parent="."]
+offset_right = 1157.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0)
+
+[connection signal="body_entered" from="Vehicle" to="." method="_on_vehicle_body_entered"]
+[connection signal="timeout" from="ZombieTimer" to="." method="_on_zombie_timer_timeout"]

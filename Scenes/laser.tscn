@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://btnx8vmgeha25"]
+
+[ext_resource type="Script" path="res://Code/laser.gd" id="1_1dxme"]
+[ext_resource type="PackedScene" path="res://Scenes/explosion.tscn" id="2_dd03o"]
+[ext_resource type="Texture2D" uid="uid://b0nnirf8xquog" path="res://Sprites/Laser.png" id="3_285hq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rjlvj"]
+radius = 11.2
+
+[node name="Laser" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_1dxme")
+Explosion = ExtResource("2_dd03o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(5, 5)
+texture = ExtResource("3_285hq")
+region_enabled = true
+region_rect = Rect2(85, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rjlvj")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

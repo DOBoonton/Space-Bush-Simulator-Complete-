@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt31d8pjhdkwc"]
+
+[ext_resource type="Script" path="res://Code/Planets/abyssariPlanet.gd" id="1_q0w2f"]
+[ext_resource type="Texture2D" uid="uid://dtw0xln1x51ms" path="res://Sprites/Planets.png" id="2_7uvtu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0700u"]
+radius = 271.97
+
+[node name="Abyssari" type="Area2D" groups=["Obstacle"]]
+script = ExtResource("1_q0w2f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("2_7uvtu")
+region_enabled = true
+region_rect = Rect2(64, 0, 64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0700u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

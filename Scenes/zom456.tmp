@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo8wvhl0tcqu8"]
+
+[ext_resource type="Script" path="res://Code/zombie.gd" id="1_n2cpb"]
+[ext_resource type="Texture2D" uid="uid://24gnpm5l2gm0" path="res://Sprites/Bushes.png" id="2_erltd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gldof"]
+radius = 27.074
+
+[node name="Zombie" type="CharacterBody2D" groups=["zombieMars"]]
+script = ExtResource("1_n2cpb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_erltd")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gldof")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(50, 0)

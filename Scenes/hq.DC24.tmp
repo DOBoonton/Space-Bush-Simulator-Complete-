@@ -1,0 +1,340 @@
+[gd_scene load_steps=36 format=3 uid="uid://m67sbso0h0l5"]
+
+[ext_resource type="Script" path="res://Code/hq.gd" id="1_gcgt0"]
+[ext_resource type="Texture2D" uid="uid://cx83tq4mfweug" path="res://Sprites/Backgrounds/CosmOilHQ.png" id="2_ojc3v"]
+[ext_resource type="Texture2D" uid="uid://t7yr8cdcvddk" path="res://Sprites/Player Ships/beaterShip.png" id="3_gn61w"]
+[ext_resource type="Texture2D" uid="uid://bj3l7n0sfgibr" path="res://Sprites/Player Ships/basicShip.png" id="4_j2c3v"]
+[ext_resource type="Texture2D" uid="uid://d3l1tse6xs64u" path="res://Sprites/Player Ships/transportShip.png" id="5_6i85g"]
+[ext_resource type="Texture2D" uid="uid://cokouawxpy1v2" path="res://Sprites/Player Ships/interstellarCosmOilTransporter.png" id="6_ub3x4"]
+[ext_resource type="Texture2D" uid="uid://djnpkxbnrsan" path="res://Sprites/Player Ships/blackHawkShip.png" id="7_6umut"]
+[ext_resource type="Texture2D" uid="uid://cm3kdkd0nolam" path="res://Sprites/Player Ships/artemisShip.png" id="8_31gc6"]
+[ext_resource type="PackedScene" uid="uid://cfr01y2dvabae" path="res://Scenes/player.tscn" id="9_aja7q"]
+[ext_resource type="Texture2D" uid="uid://bplkjt5yk6ci2" path="res://Sprites/Humanoids/GeorgeBush.png" id="9_vwygq"]
+[ext_resource type="PackedScene" uid="uid://dt4lbv0tfoncf" path="res://Scenes/hud.tscn" id="10_rpr4t"]
+[ext_resource type="PackedScene" uid="uid://cr0cb6fi43jaq" path="res://Scenes/music.tscn" id="11_t0e0d"]
+[ext_resource type="AudioStream" uid="uid://dypksi6uegflc" path="res://Sounds/Refuel.wav" id="13_p0dxs"]
+[ext_resource type="AudioStream" uid="uid://dvxs1ffmott27" path="res://Sounds/Select.wav" id="14_8ccnw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7l5b"]
+atlas = ExtResource("3_gn61w")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18svn"]
+atlas = ExtResource("3_gn61w")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8sfq"]
+atlas = ExtResource("4_j2c3v")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_788am"]
+atlas = ExtResource("4_j2c3v")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri3ub"]
+atlas = ExtResource("5_6i85g")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt21x"]
+atlas = ExtResource("5_6i85g")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o1bn"]
+atlas = ExtResource("6_ub3x4")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cch32"]
+atlas = ExtResource("6_ub3x4")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cjlf"]
+atlas = ExtResource("7_6umut")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26nab"]
+atlas = ExtResource("7_6umut")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2181x"]
+atlas = ExtResource("8_31gc6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an1yn"]
+atlas = ExtResource("8_31gc6")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkwbh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7l5b")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18svn")
+}],
+"loop": true,
+"name": &"1F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8sfq")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_788am")
+}],
+"loop": true,
+"name": &"2F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri3ub")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt21x")
+}],
+"loop": true,
+"name": &"3F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o1bn")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cch32")
+}],
+"loop": true,
+"name": &"4F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cjlf")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26nab")
+}],
+"loop": true,
+"name": &"5F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2181x")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an1yn")
+}],
+"loop": true,
+"name": &"6F",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_esshn"]
+radius = 158.269
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e8ol3"]
+radius = 44.0
+height = 170.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jeg8"]
+radius = 44.0
+height = 114.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ol1ro"]
+size = Vector2(40, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3e6bn"]
+size = Vector2(85, 40)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36s03"]
+radius = 20.0
+height = 48.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4pkp"]
+size = Vector2(30, 40)
+
+[sub_resource type="FontFile" id="FontFile_kthod"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
+
+[node name="HQ" type="Node2D"]
+script = ExtResource("1_gcgt0")
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(576.5, 324)
+scale = Vector2(1.97561, 1.97561)
+texture = ExtResource("2_ojc3v")
+
+[node name="Vehicle" type="Area2D" parent="."]
+position = Vector2(472, -51)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Vehicle"]
+position = Vector2(-8.74228e-07, 20)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_gkwbh")
+animation = &"4F"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vehicle"]
+shape = SubResource("CircleShape2D_esshn")
+
+[node name="GeorgeBush" type="Area2D" parent="."]
+position = Vector2(37, 563)
+
+[node name="George" type="Sprite2D" parent="GeorgeBush"]
+texture = ExtResource("9_vwygq")
+region_enabled = true
+region_rect = Rect2(0, 0, 27, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GeorgeBush"]
+position = Vector2(57, 18)
+shape = SubResource("CapsuleShape2D_e8ol3")
+
+[node name="GeorgeTime" type="Timer" parent="GeorgeBush"]
+wait_time = 0.05
+
+[node name="GeorgeBushUpgrade" type="Area2D" parent="."]
+position = Vector2(37, 563)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GeorgeBushUpgrade"]
+position = Vector2(0, -473)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1jeg8")
+
+[node name="ColorRect" type="ColorRect" parent="GeorgeBushUpgrade"]
+offset_left = -57.0
+offset_top = -517.0
+offset_right = 57.0
+offset_bottom = -429.0
+color = Color(1, 0, 0, 1)
+
+[node name="Counter" type="StaticBody2D" parent="."]
+position = Vector2(37, 563)
+
+[node name="CounterPlaceholder" type="ColorRect" parent="Counter"]
+offset_left = 17.0
+offset_top = -27.0
+offset_right = 57.0
+offset_bottom = 73.0
+
+[node name="CounterCollision" type="CollisionShape2D" parent="Counter"]
+position = Vector2(37, 23)
+shape = SubResource("RectangleShape2D_ol1ro")
+
+[node name="CounterCollision2" type="CollisionShape2D" parent="Counter"]
+position = Vector2(14.5, -47)
+shape = SubResource("RectangleShape2D_3e6bn")
+
+[node name="Counter" type="Sprite2D" parent="Counter"]
+
+[node name="GasPump" type="Area2D" parent="."]
+position = Vector2(207, 97)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GasPump"]
+position = Vector2(25, 20)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_36s03")
+
+[node name="Pump" type="StaticBody2D" parent="GasPump"]
+
+[node name="GasPumpPlaceholder" type="ColorRect" parent="GasPump/Pump"]
+offset_right = 30.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GasPump/Pump"]
+position = Vector2(15, 20)
+shape = SubResource("RectangleShape2D_g4pkp")
+
+[node name="Player" parent="." instance=ExtResource("9_aja7q")]
+position = Vector2(673, 224)
+
+[node name="Hud" parent="." instance=ExtResource("10_rpr4t")]
+
+[node name="Music" parent="." instance=ExtResource("11_t0e0d")]
+
+[node name="Text" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_top = 0.00347233
+anchor_right = 0.681818
+anchor_bottom = 0.00347233
+offset_left = 109.0
+offset_top = 584.0
+offset_right = 626.0
+offset_bottom = 612.0
+scale = Vector2(2, 2)
+theme_override_fonts/normal_font = SubResource("FontFile_kthod")
+theme_override_font_sizes/normal_font_size = 20
+text = "BOUGHT INTERSTELLAR CosmOil TRANSPORTER FOR 450β"
+autowrap_mode = 0
+
+[node name="TextTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="GasTime" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="Refuel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_p0dxs")
+volume_db = -15.0
+pitch_scale = 0.5
+
+[node name="Speech" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_8ccnw")
+volume_db = -20.0
+
+[connection signal="body_entered" from="Vehicle" to="." method="_on_vehicle_body_entered"]
+[connection signal="body_entered" from="GeorgeBush" to="." method="_on_george_bush_body_entered"]
+[connection signal="body_entered" from="GeorgeBushUpgrade" to="." method="_on_george_bush_upgrade_body_entered"]
+[connection signal="body_exited" from="GeorgeBushUpgrade" to="." method="_on_george_bush_upgrade_body_exited"]
+[connection signal="body_entered" from="GasPump" to="." method="_on_gas_pump_body_entered"]
+[connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]
+[connection signal="timeout" from="GasTime" to="." method="_on_gas_time_timeout"]

@@ -1,0 +1,207 @@
+[gd_scene load_steps=26 format=3 uid="uid://cei31it6lrjp0"]
+
+[ext_resource type="Script" path="res://Code/Surfaces/rangerprime.gd" id="1_dhum8"]
+[ext_resource type="Texture2D" uid="uid://cguhao08xrnbi" path="res://Sprites/Backgrounds/RangerPrime.png" id="2_hrpp6"]
+[ext_resource type="Texture2D" uid="uid://t7yr8cdcvddk" path="res://Sprites/Player Ships/beaterShip.png" id="3_7gjy1"]
+[ext_resource type="Texture2D" uid="uid://bj3l7n0sfgibr" path="res://Sprites/Player Ships/basicShip.png" id="4_j5c5k"]
+[ext_resource type="Texture2D" uid="uid://d3l1tse6xs64u" path="res://Sprites/Player Ships/transportShip.png" id="5_1qnc0"]
+[ext_resource type="Texture2D" uid="uid://cokouawxpy1v2" path="res://Sprites/Player Ships/interstellarCosmOilTransporter.png" id="6_g74wr"]
+[ext_resource type="Texture2D" uid="uid://djnpkxbnrsan" path="res://Sprites/Player Ships/blackHawkShip.png" id="7_xa7dn"]
+[ext_resource type="Texture2D" uid="uid://cm3kdkd0nolam" path="res://Sprites/Player Ships/artemisShip.png" id="8_aptkp"]
+[ext_resource type="PackedScene" uid="uid://cfr01y2dvabae" path="res://Scenes/player.tscn" id="9_65pn3"]
+[ext_resource type="PackedScene" uid="uid://dt4lbv0tfoncf" path="res://Scenes/hud.tscn" id="10_d4kgy"]
+[ext_resource type="PackedScene" uid="uid://cr0cb6fi43jaq" path="res://Scenes/music.tscn" id="11_0rkse"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7l5b"]
+atlas = ExtResource("3_7gjy1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18svn"]
+atlas = ExtResource("3_7gjy1")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8sfq"]
+atlas = ExtResource("4_j5c5k")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_788am"]
+atlas = ExtResource("4_j5c5k")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri3ub"]
+atlas = ExtResource("5_1qnc0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt21x"]
+atlas = ExtResource("5_1qnc0")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o1bn"]
+atlas = ExtResource("6_g74wr")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cch32"]
+atlas = ExtResource("6_g74wr")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cjlf"]
+atlas = ExtResource("7_xa7dn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26nab"]
+atlas = ExtResource("7_xa7dn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2181x"]
+atlas = ExtResource("8_aptkp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an1yn"]
+atlas = ExtResource("8_aptkp")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkwbh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7l5b")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18svn")
+}],
+"loop": true,
+"name": &"1F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8sfq")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_788am")
+}],
+"loop": true,
+"name": &"2F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri3ub")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt21x")
+}],
+"loop": true,
+"name": &"3F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o1bn")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cch32")
+}],
+"loop": true,
+"name": &"4F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cjlf")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26nab")
+}],
+"loop": true,
+"name": &"5F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2181x")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an1yn")
+}],
+"loop": true,
+"name": &"6F",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_esshn"]
+radius = 158.269
+
+[node name="RangerPrime" type="Node2D"]
+script = ExtResource("1_dhum8")
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(577.579, 324)
+scale = Vector2(1.97561, 1.97561)
+texture = ExtResource("2_hrpp6")
+
+[node name="Pit" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="Danger" type="CollisionPolygon2D" parent="Pit"]
+polygon = PackedVector2Array(339, 76, 273, 101, 216, 130, 172, 162, 145, 190, 119, 221, 102, 266, 100, 321, 108, 360, 131, 399, 171, 442, 202, 466, 229, 482, 262, 498, 300, 514, 340, 527, 373, 536, 408, 544, 437, 548, 462, 552, 487, 555, 519, 556, 607, 556, 630, 556, 653, 554, 683, 549, 707, 546, 718, 544, 736, 540, 750, 537, 770, 532, 783, 528, 806, 520, 837, 510, 866, 496, 897, 480, 923, 465, 947, 446, 974, 421, 997, 394, 1016, 364, 1026, 326, 1025, 319, 1026, 278, 1022, 257, 1005, 222, 982, 190, 946, 156, 914, 135, 879, 115, 844, 97, 800, 82, 754, 70, 730, 65, 709, 60, 683, 55, 657, 52, 630, 49, 604, 48, 518, 49, 471, 50, 427, 56, 406, 60, 378, 66, 350, 74, 339, -9, 1188, -17, 1207, 666, -58, 661, -28, -20, 350, 74)
+
+[node name="Vehicle" type="Area2D" parent="."]
+position = Vector2(452, -49)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Vehicle"]
+position = Vector2(-8.74228e-07, 20)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_gkwbh")
+animation = &"4F"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vehicle"]
+shape = SubResource("CircleShape2D_esshn")
+
+[node name="ZombieTimer" type="Timer" parent="."]
+wait_time = 20.0
+
+[node name="Player" parent="." instance=ExtResource("9_65pn3")]
+position = Vector2(658, 112)
+
+[node name="Hud" parent="." instance=ExtResource("10_d4kgy")]
+
+[node name="Music" parent="." instance=ExtResource("11_0rkse")]
+
+[node name="Night" type="ColorRect" parent="."]
+offset_right = 1157.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0)
+
+[connection signal="body_entered" from="Vehicle" to="." method="_on_vehicle_body_entered"]
+[connection signal="timeout" from="ZombieTimer" to="." method="_on_zombie_timer_timeout"]

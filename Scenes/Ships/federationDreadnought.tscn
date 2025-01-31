@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://hgonw0b0h4et"]
+
+[ext_resource type="Script" path="res://Code/Ships/federationDreadnought.gd" id="1_6ny57"]
+[ext_resource type="PackedScene" uid="uid://crtnp7auwtsg" path="res://Scenes/Ships/FederationDreadnoughtPieces/federationHead.tscn" id="2_dbnum"]
+[ext_resource type="PackedScene" uid="uid://cs55qaaqgdnac" path="res://Scenes/Ships/FederationDreadnoughtPieces/federationBodyA.tscn" id="3_2iy7w"]
+[ext_resource type="PackedScene" uid="uid://de4ih1skiyxek" path="res://Scenes/Ships/FederationDreadnoughtPieces/federationBodyB.tscn" id="4_d5ark"]
+[ext_resource type="PackedScene" uid="uid://dhnjc0g0tmxkn" path="res://Scenes/Ships/FederationDreadnoughtPieces/federationTail.tscn" id="5_56ged"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ldyl6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s5adl"]
+radius = 981.0
+height = 3132.0
+
+[node name="FederationDreadnought" type="CharacterBody2D" groups=["federation", "federationDreadnought"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_6ny57")
+
+[node name="SpaceDetection" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ldyl6")
+
+[node name="FederationTail" parent="." instance=ExtResource("5_56ged")]
+position = Vector2(-1170, 0)
+
+[node name="FederationBodyB6" parent="." instance=ExtResource("4_d5ark")]
+position = Vector2(-1080, 0)
+
+[node name="FederationBodyA6" parent="." instance=ExtResource("3_2iy7w")]
+position = Vector2(-990, 0)
+
+[node name="FederationBodyB5" parent="." instance=ExtResource("4_d5ark")]
+position = Vector2(-900, 0)
+
+[node name="FederationBodyA5" parent="." instance=ExtResource("3_2iy7w")]
+position = Vector2(-810, 0)
+
+[node name="FederationBodyB4" parent="." instance=ExtResource("4_d5ark")]
+position = Vector2(-720, 0)
+
+[node name="FederationBodyA4" parent="." instance=ExtResource("3_2iy7w")]
+position = Vector2(-630, 0)
+
+[node name="FederationBodyB3" parent="." instance=ExtResource("4_d5ark")]
+position = Vector2(-540, 0)
+
+[node name="FederationBodyA3" parent="." instance=ExtResource("3_2iy7w")]
+position = Vector2(-450, 0)
+
+[node name="FederationBodyB2" parent="." instance=ExtResource("4_d5ark")]
+position = Vector2(-360, 0)
+
+[node name="FederationBodyA2" parent="." instance=ExtResource("3_2iy7w")]
+position = Vector2(-270, 0)
+
+[node name="FederationBodyB" parent="." instance=ExtResource("4_d5ark")]
+position = Vector2(-180, 0)
+
+[node name="FederationBodyA" parent="." instance=ExtResource("3_2iy7w")]
+position = Vector2(-90, 0)
+
+[node name="FederationHead" parent="." instance=ExtResource("2_dbnum")]
+
+[node name="Tribute" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tribute"]
+position = Vector2(-579, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_s5adl")
+
+[node name="DirectionTime" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[node name="DespawnTime" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="Tribute" to="." method="_on_tribute_body_entered"]
+[connection signal="body_exited" from="Tribute" to="." method="_on_tribute_body_exited"]
+[connection signal="timeout" from="DirectionTime" to="." method="_on_direction_time_timeout"]
+[connection signal="timeout" from="DespawnTime" to="." method="_on_despawn_time_timeout"]

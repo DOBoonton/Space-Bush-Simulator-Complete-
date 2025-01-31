@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm8yrds1tx3k4"]
+
+[ext_resource type="Script" path="res://Code/Menus/title.gd" id="1_fxucs"]
+[ext_resource type="Texture2D" uid="uid://bodfisw7adtyw" path="res://Sprites/Backgrounds/Space/Space.png" id="1_hxuln"]
+[ext_resource type="Texture2D" uid="uid://dr47iccq5bqsg" path="res://Sprites/HUD/SpaceBushSimulator.png" id="2_f186q"]
+[ext_resource type="Theme" uid="uid://cp6je6ot62dfc" path="res://Fonts/GALACTIC VANGUARDIAN.tres" id="4_5c1dn"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fxucs")
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(576.5, 324)
+scale = Vector2(1.97561, 1.97561)
+texture = ExtResource("1_hxuln")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(576, 243)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+scale = Vector2(3, 3)
+texture = ExtResource("2_f186q")
+
+[node name="Hint" type="RichTextLabel" parent="Node2D"]
+offset_left = -418.0
+offset_top = 159.0
+offset_right = -239.0
+offset_bottom = 187.0
+scale = Vector2(3, 3)
+theme = ExtResource("4_5c1dn")
+theme_override_font_sizes/normal_font_size = 14
+text = "PRESS ENTER/START"
+fit_content = true
+autowrap_mode = 0

@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://44drkqqag4sb"]
+
+[ext_resource type="Script" path="res://Code/missile.gd" id="1_ya13h"]
+[ext_resource type="PackedScene" uid="uid://fore06to3qwb" path="res://Scenes/explosion.tscn" id="2_f8v2n"]
+[ext_resource type="Texture2D" uid="uid://csa22n58rmf4v" path="res://Sprites/Player Ships/EZShip.png" id="2_fm8py"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aawdf"]
+radius = 450.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjr4g"]
+size = Vector2(10, 15)
+
+[node name="Missile" type="Area2D" groups=["missile"]]
+scale = Vector2(2, 2)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_ya13h")
+Explosion = ExtResource("2_f8v2n")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_aawdf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4.4)
+rotation = -1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("2_fm8py")
+region_enabled = true
+region_rect = Rect2(4, 0, 3, 5)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 4.4)
+rotation = -1.5708
+scale = Vector2(-3, 3)
+texture = ExtResource("2_fm8py")
+region_enabled = true
+region_rect = Rect2(4, 0, 3, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -0.5)
+shape = SubResource("RectangleShape2D_cjr4g")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

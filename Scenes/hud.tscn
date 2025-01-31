@@ -1,0 +1,477 @@
+[gd_scene load_steps=37 format=3 uid="uid://bpg452rfn7yr5"]
+
+[ext_resource type="Script" path="res://Code/hud.gd" id="1_5570h"]
+[ext_resource type="Texture2D" uid="uid://cmhe6h6eps6pg" path="res://Sprites/HUD/SpaceBushFont.png" id="2_2ys4c"]
+[ext_resource type="Texture2D" uid="uid://dtw0xln1x51ms" path="res://Sprites/Planets.png" id="2_06pj8"]
+[ext_resource type="Texture2D" uid="uid://674ce02wyyyw" path="res://Sprites/HUD/bossbar/bossbarLower.png" id="3_fwb5x"]
+[ext_resource type="Theme" uid="uid://cp6je6ot62dfc" path="res://Fonts/GALACTIC VANGUARDIAN.tres" id="3_igbb2"]
+[ext_resource type="Texture2D" uid="uid://1uyqc854t83e" path="res://Sprites/NPC Ships/banditShip.png" id="4_gebgq"]
+[ext_resource type="Texture2D" uid="uid://dsmfhdat5ejav" path="res://Sprites/HUD/bossbar/bossbarProgress.png" id="4_p5baj"]
+[ext_resource type="Texture2D" uid="uid://bk7tyf0p3qxkl" path="res://Sprites/NPC Ships/federationDreadnoughtShip.png" id="5_jyteh"]
+[ext_resource type="Texture2D" uid="uid://13uvi0n766do" path="res://Sprites/HUD/circle.png" id="5_pjcqo"]
+[ext_resource type="Texture2D" uid="uid://4inutqtumt06" path="res://Sprites/NPC Ships/pirateDreadnoughtShip.png" id="6_q0f8i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvi8a"]
+atlas = ExtResource("2_2ys4c")
+region = Rect2(48, 2, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4jg2"]
+atlas = ExtResource("2_2ys4c")
+region = Rect2(48, 34, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8g18d"]
+atlas = ExtResource("2_2ys4c")
+region = Rect2(176, 2, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhm4l"]
+atlas = ExtResource("2_2ys4c")
+region = Rect2(176, 34, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jimer"]
+atlas = ExtResource("2_2ys4c")
+region = Rect2(208, 2, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujg23"]
+atlas = ExtResource("2_2ys4c")
+region = Rect2(208, 34, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e31pb"]
+atlas = ExtResource("2_2ys4c")
+region = Rect2(272, 2, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w5ar"]
+atlas = ExtResource("2_2ys4c")
+region = Rect2(272, 34, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tibyb"]
+atlas = ExtResource("2_2ys4c")
+region = Rect2(288, 2, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifweu"]
+atlas = ExtResource("2_2ys4c")
+region = Rect2(288, 34, 16, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rssfr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvi8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4jg2")
+}],
+"loop": true,
+"name": &"Drive",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g18d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhm4l")
+}],
+"loop": true,
+"name": &"Ludicrous",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jimer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujg23")
+}],
+"loop": true,
+"name": &"Neutral",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e31pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w5ar")
+}],
+"loop": true,
+"name": &"Reverse",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tibyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifweu")
+}],
+"loop": true,
+"name": &"Sport",
+"speed": 8.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"n",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5hnp"]
+atlas = ExtResource("2_06pj8")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucfu7"]
+atlas = ExtResource("2_06pj8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v3eq"]
+atlas = ExtResource("2_06pj8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq8jm"]
+atlas = ExtResource("4_gebgq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd2jr"]
+atlas = ExtResource("5_jyteh")
+region = Rect2(96, 46, 48, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upg7b"]
+atlas = ExtResource("2_06pj8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or1jb"]
+atlas = ExtResource("2_06pj8")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ij3j"]
+atlas = ExtResource("2_06pj8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32rp7"]
+atlas = ExtResource("2_06pj8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8388m"]
+atlas = ExtResource("2_06pj8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8le5"]
+atlas = ExtResource("6_q0f8i")
+region = Rect2(96, 46, 48, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkncp"]
+atlas = ExtResource("2_06pj8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8h2th"]
+load_path = "res://.godot/imported/planets.png-0004addee9f191219adbe12dcf0b94a6.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ardcd"]
+atlas = SubResource("CompressedTexture2D_8h2th")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iil5f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5hnp")
+}],
+"loop": true,
+"name": &"abandonedhq",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucfu7")
+}],
+"loop": true,
+"name": &"abyssari",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v3eq")
+}],
+"loop": true,
+"name": &"abyssaril",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq8jm")
+}],
+"loop": true,
+"name": &"bandits",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd2jr")
+}],
+"loop": true,
+"name": &"federation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upg7b")
+}],
+"loop": true,
+"name": &"goldalis",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or1jb")
+}],
+"loop": true,
+"name": &"hq",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ij3j")
+}],
+"loop": true,
+"name": &"magmus",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32rp7")
+}],
+"loop": true,
+"name": &"magmusl",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8388m")
+}],
+"loop": true,
+"name": &"mars",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8le5")
+}],
+"loop": true,
+"name": &"pirate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkncp")
+}],
+"loop": true,
+"name": &"rangerprime",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ardcd")
+}],
+"loop": true,
+"name": &"shop",
+"speed": 5.0
+}]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5570h")
+
+[node name="Gear" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.921569)
+position = Vector2(1108, 596)
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_rssfr")
+animation = &"n"
+
+[node name="Version" type="RichTextLabel" parent="Gear"]
+offset_left = -49.0
+offset_top = -121.0
+offset_right = 35.0
+offset_bottom = -93.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_igbb2")
+theme_override_font_sizes/normal_font_size = 14
+text = "inDev"
+autowrap_mode = 0
+
+[node name="SolarCount" type="RichTextLabel" parent="Gear"]
+offset_left = -245.0
+offset_top = -1.0
+offset_right = -45.0
+offset_bottom = 27.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_igbb2")
+theme_override_font_sizes/normal_font_size = 14
+text = "AU: 1.444"
+autowrap_mode = 0
+
+[node name="BitsCount" type="RichTextLabel" parent="Gear"]
+offset_left = -245.0
+offset_top = -11.0
+offset_right = -161.0
+offset_bottom = 17.0001
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_igbb2")
+theme_override_font_sizes/normal_font_size = 14
+text = "β: 10000"
+autowrap_mode = 0
+
+[node name="CrudSolCount" type="RichTextLabel" parent="Gear"]
+anchors_preset = -1
+anchor_top = 0.00347233
+anchor_right = 0.681818
+anchor_bottom = 0.00347233
+offset_left = -245.0
+offset_top = -131.0
+offset_right = -45.0
+offset_bottom = -103.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_igbb2")
+theme_override_font_sizes/normal_font_size = 14
+text = "CRUD: 4.44"
+autowrap_mode = 0
+
+[node name="QuotaCount" type="RichTextLabel" parent="Gear"]
+anchors_preset = -1
+anchor_top = 0.00347233
+anchor_right = 0.681818
+anchor_bottom = 0.00347233
+offset_left = -245.0
+offset_top = -121.0
+offset_right = -45.0
+offset_bottom = -93.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_igbb2")
+theme_override_font_sizes/normal_font_size = 14
+text = "QUOTA: 5.0"
+autowrap_mode = 0
+
+[node name="TimeCount" type="RichTextLabel" parent="Gear"]
+anchors_preset = -1
+anchor_top = 0.00347233
+anchor_right = 0.681818
+anchor_bottom = 0.00347233
+offset_left = -49.0
+offset_top = -130.0
+offset_right = 68.0
+offset_bottom = -102.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_igbb2")
+theme_override_font_sizes/normal_font_size = 14
+text = "Wed | 24 | 44"
+autowrap_mode = 0
+
+[node name="BossHP" type="TextureProgressBar" parent="Gear"]
+visible = false
+modulate = Color(1, 1, 1, 0.862745)
+offset_left = -246.0
+offset_top = -107.0
+offset_right = -146.0
+offset_bottom = -87.0
+scale = Vector2(0.75, 0.75)
+max_value = 200.0
+texture_under = ExtResource("3_fwb5x")
+texture_progress = ExtResource("4_p5baj")
+
+[node name="ShieldRecharge" type="TextureProgressBar" parent="Gear"]
+modulate = Color(1, 1, 1, 0.862745)
+offset_left = -245.0
+offset_top = -29.0
+offset_right = -145.0
+offset_bottom = 35.0
+scale = Vector2(0.25, 0.25)
+max_value = 1.0
+step = 0.01
+fill_mode = 5
+texture_under = ExtResource("5_pjcqo")
+texture_progress = ExtResource("5_pjcqo")
+tint_under = Color(0, 0.729412, 0, 1)
+tint_progress = Color(0, 1, 0, 1)
+
+[node name="Paused" type="ColorRect" parent="Gear"]
+visible = false
+offset_left = -374.222
+offset_top = -204.444
+offset_right = 777.778
+offset_bottom = 443.556
+color = Color(0.156863, 0.156863, 0.156863, 0.65098)
+
+[node name="Pause" type="RichTextLabel" parent="Gear"]
+visible = false
+anchors_preset = -1
+anchor_top = 0.00347233
+anchor_right = 0.681818
+anchor_bottom = 0.00347233
+offset_left = -141.0
+offset_top = -66.0
+offset_right = -77.0
+offset_bottom = -38.0
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("3_igbb2")
+theme_override_font_sizes/normal_font_size = 14
+text = "Paused"
+autowrap_mode = 0
+
+[node name="Mute" type="RichTextLabel" parent="Gear"]
+visible = false
+anchors_preset = -1
+anchor_top = 0.00347233
+anchor_right = 0.681818
+anchor_bottom = 0.00347233
+offset_left = -134.5
+offset_top = -129.556
+offset_right = -66.5
+offset_bottom = -101.556
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_igbb2")
+theme_override_font_sizes/normal_font_size = 14
+text = "MUTED"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Debug" type="RichTextLabel" parent="Gear"]
+visible = false
+anchors_preset = -1
+anchor_top = 0.00347233
+anchor_right = 0.681818
+anchor_bottom = 0.00347233
+offset_left = -134.5
+offset_top = -119.0
+offset_right = -66.5
+offset_bottom = -91.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_igbb2")
+theme_override_font_sizes/normal_font_size = 14
+text = "DEBUG"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Radar" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.607843)
+position = Vector2(576, 324)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_iil5f")
+animation = &"abyssari"
+
+[node name="Anchor" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Anchor"]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(1, 1, 1, 0)
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+one_shot = true

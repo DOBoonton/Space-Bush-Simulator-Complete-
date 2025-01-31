@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://fore06to3qwb"]
+
+[ext_resource type="Script" path="res://Code/explosion.gd" id="1_3xumr"]
+[ext_resource type="Texture2D" uid="uid://b0nnirf8xquog" path="res://Sprites/Laser.png" id="2_4pfia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a31a"]
+atlas = ExtResource("2_4pfia")
+region = Rect2(68, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hhcd"]
+atlas = ExtResource("2_4pfia")
+region = Rect2(51, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wnnm"]
+atlas = ExtResource("2_4pfia")
+region = Rect2(34, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ipv1"]
+atlas = ExtResource("2_4pfia")
+region = Rect2(17, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbt6e"]
+atlas = ExtResource("2_4pfia")
+region = Rect2(0, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqs2r"]
+atlas = ExtResource("2_4pfia")
+region = Rect2(85, 0, 17, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fgwhs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a31a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hhcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wnnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ipv1")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_xbt6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ipv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wnnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hhcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a31a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqs2r")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 16.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_3xumr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_fgwhs")
+animation = &"explosion"
+autoplay = "explosion"
+
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]

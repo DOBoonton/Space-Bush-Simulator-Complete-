@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwjvvmhsk85ox"]
+
+[ext_resource type="Script" path="res://Code/Bushes/zombieRelic.gd" id="1_46vh3"]
+[ext_resource type="Texture2D" uid="uid://24gnpm5l2gm0" path="res://Sprites/Bushes.png" id="2_wsbtg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6of5w"]
+size = Vector2(60, 60)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3604h"]
+radius = 1500.0
+
+[node name="ZombieRelic" type="CharacterBody2D" groups=["zombieRelic"]]
+script = ExtResource("1_46vh3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_wsbtg")
+region_enabled = true
+region_rect = Rect2(160, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6of5w")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(50, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.05, 0.05)
+shape = SubResource("CircleShape2D_3604h")

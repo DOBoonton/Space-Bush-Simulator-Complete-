@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn2de8gl2llc8"]
+
+[ext_resource type="Script" path="res://Code/Planets/bandit_squad.gd" id="1_0wtkt"]
+[ext_resource type="PackedScene" uid="uid://cwjvvmhsk85ox" path="res://Scenes/Bushes/zombieRelic.tscn" id="3_beltq"]
+
+[node name="BanditSquad" type="Node2D"]
+script = ExtResource("1_0wtkt")
+
+[node name="ZombieRelic" parent="." instance=ExtResource("3_beltq")]
+scale = Vector2(0.3, 0.3)
+script = null

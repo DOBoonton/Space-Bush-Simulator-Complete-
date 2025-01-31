@@ -1,0 +1,122 @@
+[gd_scene load_steps=14 format=3 uid="uid://de4ih1skiyxek"]
+
+[ext_resource type="Script" path="res://Code/Ships/FederationDreadnoughtPieces/federationBody.gd" id="1_ric3m"]
+[ext_resource type="PackedScene" uid="uid://fore06to3qwb" path="res://Scenes/explosion.tscn" id="2_1j42w"]
+[ext_resource type="AudioStream" uid="uid://bgwjucdfgxhq6" path="res://Sounds/explosion.wav" id="2_2r14s"]
+[ext_resource type="PackedScene" uid="uid://bhsweemi10ju3" path="res://Scenes/Ships/federation.tscn" id="2_laibm"]
+[ext_resource type="AudioStream" uid="uid://bql7cgkyc6avl" path="res://Sounds/BlackHole.wav" id="3_gj2qt"]
+[ext_resource type="Texture2D" uid="uid://bk7tyf0p3qxkl" path="res://Sprites/NPC Ships/federationDreadnoughtShip.png" id="5_0rxj8"]
+[ext_resource type="AudioStream" uid="uid://b2nu7o7t65753" path="res://Sounds/ShipDamaged.wav" id="5_eympi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hp35w"]
+radius = 51.0
+height = 384.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1u3eh"]
+radius = 51.0
+height = 384.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4myw"]
+radius = 950.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yftcx"]
+atlas = ExtResource("5_0rxj8")
+region = Rect2(0, 46, 48, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p62q2"]
+atlas = ExtResource("5_0rxj8")
+region = Rect2(48, 46, 48, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcljs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yftcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p62q2")
+}],
+"loop": true,
+"name": &"drive",
+"speed": 5.0
+}]
+
+[node name="FederationBodyB" type="CharacterBody2D" groups=["federation"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ric3m")
+Ship = ExtResource("2_laibm")
+Explosion = ExtResource("2_1j42w")
+
+[node name="TooCloseDetection" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TooCloseDetection"]
+position = Vector2(12, 0)
+shape = SubResource("CapsuleShape2D_hp35w")
+
+[node name="BoomDetection" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoomDetection"]
+position = Vector2(12, 0)
+shape = SubResource("CapsuleShape2D_1u3eh")
+
+[node name="Detection" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(7, -11)
+shape = SubResource("CircleShape2D_m4myw")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="ShipTime" type="Timer" parent="."]
+wait_time = 7.5
+one_shot = true
+
+[node name="WaitTime" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2r14s")
+volume_db = -5.0
+pitch_scale = 0.5
+
+[node name="Engine" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gj2qt")
+volume_db = -30.0
+
+[node name="Summon" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_eympi")
+volume_db = -20.0
+pitch_scale = 0.2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-32, 0)
+rotation = -1.5708
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_qcljs")
+animation = &"drive"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, 0)
+shape = SubResource("CapsuleShape2D_hp35w")
+
+[node name="SpawnL" type="Marker2D" parent="."]
+position = Vector2(0, -242)
+
+[node name="SpawnR" type="Marker2D" parent="."]
+position = Vector2(0, 242)
+
+[connection signal="body_entered" from="TooCloseDetection" to="." method="_on_too_close_detection_body_entered"]
+[connection signal="body_entered" from="BoomDetection" to="." method="_on_boom_detection_body_entered"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="ShipTime" to="." method="_on_ship_time_timeout"]
+[connection signal="timeout" from="WaitTime" to="." method="_on_wait_time_timeout"]

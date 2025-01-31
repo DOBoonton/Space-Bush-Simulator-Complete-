@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu0hppri8e6op"]
+
+[ext_resource type="Script" path="res://Code/Planets/goldalisPlanet.gd" id="1_rb8f0"]
+[ext_resource type="Texture2D" uid="uid://dtw0xln1x51ms" path="res://Sprites/Planets.png" id="2_oqvd2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ahhwn"]
+radius = 162.693
+
+[node name="Goldalis" type="Area2D" groups=["Obstacle"]]
+script = ExtResource("1_rb8f0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(7, 7)
+texture = ExtResource("2_oqvd2")
+region_enabled = true
+region_rect = Rect2(256, 0, 64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ahhwn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

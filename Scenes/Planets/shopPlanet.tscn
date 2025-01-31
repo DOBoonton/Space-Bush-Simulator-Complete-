@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://bmtshccyou4oa"]
+
+[ext_resource type="Script" path="res://Code/Planets/shopPlanet.gd" id="1_qvfl4"]
+[ext_resource type="Texture2D" uid="uid://dtw0xln1x51ms" path="res://Sprites/Planets.png" id="2_rhhdp"]
+[ext_resource type="Texture2D" uid="uid://djnpkxbnrsan" path="res://Sprites/Player Ships/blackHawkShip.png" id="3_bhcrk"]
+[ext_resource type="Texture2D" uid="uid://dtrgrtnj32m1h" path="res://Sprites/NPC Ships/insuranceShip.png" id="4_4rmj5"]
+[ext_resource type="Texture2D" uid="uid://ldg2uxtn7ay3" path="res://Sprites/NPC Ships/astronomyGuideShip.png" id="5_8kv3s"]
+[ext_resource type="Texture2D" uid="uid://dj5qyi43shg08" path="res://Sprites/NPC Ships/nebulaDreadnoughtShip.png" id="6_q1rrn"]
+[ext_resource type="Texture2D" uid="uid://nn4pjye8our6" path="res://Sprites/NPC Ships/guildHQShip.png" id="7_1a3du"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jco6i"]
+size = Vector2(347, 157)
+
+[node name="Shop" type="Area2D" groups=["Obstacle"]]
+script = ExtResource("1_qvfl4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("2_rhhdp")
+region_enabled = true
+region_rect = Rect2(576, 0, 64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 94)
+shape = SubResource("RectangleShape2D_jco6i")
+
+[node name="Underground" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Underground" type="Sprite2D" parent="Underground"]
+position = Vector2(237.878, 52.8782)
+rotation = 1.32202
+scale = Vector2(2, 2)
+texture = ExtResource("3_bhcrk")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="Underground2" type="Sprite2D" parent="Underground"]
+position = Vector2(257.878, 118.878)
+rotation = 1.52601
+scale = Vector2(2, 2)
+texture = ExtResource("3_bhcrk")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="Insurance" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-240, 81)
+rotation = -1.18629
+scale = Vector2(2, 2)
+texture = ExtResource("4_4rmj5")
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Astronomy" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(212, 218)
+rotation = 2.52737
+scale = Vector2(2, 2)
+texture = ExtResource("5_8kv3s")
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Nebula" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-180, 234)
+rotation = -2.87034
+scale = Vector2(2, 2)
+texture = ExtResource("6_q1rrn")
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Farmer" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(8, 240)
+rotation = 3.1201
+scale = Vector2(2, 2)
+texture = ExtResource("7_1a3du")
+region_rect = Rect2(0, 0, 32, 32)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

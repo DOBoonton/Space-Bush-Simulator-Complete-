@@ -1,0 +1,350 @@
+[gd_scene load_steps=38 format=3 uid="uid://ktpf1netts13"]
+
+[ext_resource type="Script" path="res://Code/Surfaces/shop.gd" id="1_816if"]
+[ext_resource type="Texture2D" uid="uid://cx83tq4mfweug" path="res://Sprites/Backgrounds/CosmOilHQ.png" id="2_ypgc1"]
+[ext_resource type="Texture2D" uid="uid://t7yr8cdcvddk" path="res://Sprites/Player Ships/beaterShip.png" id="3_01bqw"]
+[ext_resource type="Texture2D" uid="uid://bj3l7n0sfgibr" path="res://Sprites/Player Ships/basicShip.png" id="4_hew6w"]
+[ext_resource type="Texture2D" uid="uid://d3l1tse6xs64u" path="res://Sprites/Player Ships/transportShip.png" id="5_pjft2"]
+[ext_resource type="Texture2D" uid="uid://cokouawxpy1v2" path="res://Sprites/Player Ships/interstellarCosmOilTransporter.png" id="6_vu6qp"]
+[ext_resource type="Texture2D" uid="uid://djnpkxbnrsan" path="res://Sprites/Player Ships/blackHawkShip.png" id="7_unt0w"]
+[ext_resource type="Texture2D" uid="uid://cm3kdkd0nolam" path="res://Sprites/Player Ships/artemisShip.png" id="8_bbh5p"]
+[ext_resource type="PackedScene" uid="uid://cv72hw2qtd2cu" path="res://Scenes/player.tscn" id="9_tv6b1"]
+[ext_resource type="Texture2D" uid="uid://dn8jce54e0adn" path="res://Sprites/Humanoids/UndergroundVendor.png" id="10_jccol"]
+[ext_resource type="Texture2D" uid="uid://5xd5x3ag3b7t" path="res://Sprites/Humanoids/NebulaVendor.png" id="11_8shtu"]
+[ext_resource type="Texture2D" uid="uid://pqj1sax8nmn4" path="res://Sprites/Humanoids/Farmer'sGuildVendor.png" id="12_glpyk"]
+[ext_resource type="Texture2D" uid="uid://bs17b5sm1rxvl" path="res://Sprites/Humanoids/TrumpVendor.png" id="13_52j7u"]
+[ext_resource type="Texture2D" uid="uid://c151rbelmq8eo" path="res://Sprites/Humanoids/Astronomy'sGuideVendor.png" id="14_3ahya"]
+[ext_resource type="PackedScene" uid="uid://bpg452rfn7yr5" path="res://Scenes/hud.tscn" id="15_f7wip"]
+[ext_resource type="PackedScene" uid="uid://cpb4fofhmv6le" path="res://Scenes/music.tscn" id="16_yihgo"]
+[ext_resource type="Theme" uid="uid://cp6je6ot62dfc" path="res://Fonts/GALACTIC VANGUARDIAN.tres" id="17_5p2w3"]
+[ext_resource type="AudioStream" uid="uid://dvxs1ffmott27" path="res://Sounds/Select.wav" id="17_fmtmx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs1oa"]
+size = Vector2(1159, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7l5b"]
+atlas = ExtResource("3_01bqw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18svn"]
+atlas = ExtResource("3_01bqw")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8sfq"]
+atlas = ExtResource("4_hew6w")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_788am"]
+atlas = ExtResource("4_hew6w")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri3ub"]
+atlas = ExtResource("5_pjft2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt21x"]
+atlas = ExtResource("5_pjft2")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o1bn"]
+atlas = ExtResource("6_vu6qp")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cch32"]
+atlas = ExtResource("6_vu6qp")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cjlf"]
+atlas = ExtResource("7_unt0w")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26nab"]
+atlas = ExtResource("7_unt0w")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2181x"]
+atlas = ExtResource("8_bbh5p")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an1yn"]
+atlas = ExtResource("8_bbh5p")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b8bsx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7l5b")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18svn")
+}],
+"loop": true,
+"name": &"1F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8sfq")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_788am")
+}],
+"loop": true,
+"name": &"2F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri3ub")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt21x")
+}],
+"loop": true,
+"name": &"3F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o1bn")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cch32")
+}],
+"loop": true,
+"name": &"4F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cjlf")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26nab")
+}],
+"loop": true,
+"name": &"5F",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2181x")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an1yn")
+}],
+"loop": true,
+"name": &"6F",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f6apo"]
+radius = 158.269
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_asfe6"]
+radius = 50.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wxf2"]
+atlas = ExtResource("14_3ahya")
+region = Rect2(0, 0, 26, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f562"]
+atlas = ExtResource("14_3ahya")
+region = Rect2(28, 0, 26, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_acuvd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wxf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f562")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_816if")
+
+[node name="ShopDetect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopDetect"]
+position = Vector2(577.5, 324)
+shape = SubResource("RectangleShape2D_cs1oa")
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(577.579, 324)
+scale = Vector2(1.97561, 1.97561)
+texture = ExtResource("2_ypgc1")
+
+[node name="Vehicle" type="Area2D" parent="."]
+position = Vector2(472, -51)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Vehicle"]
+position = Vector2(-8.74228e-07, 20)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_b8bsx")
+animation = &"4F"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vehicle"]
+shape = SubResource("CircleShape2D_f6apo")
+
+[node name="Player" parent="." instance=ExtResource("9_tv6b1")]
+position = Vector2(673, 224)
+
+[node name="Underground" type="Area2D" parent="." groups=["NPC"]]
+visible = false
+position = Vector2(89, 257)
+
+[node name="Underground" type="Sprite2D" parent="Underground"]
+position = Vector2(17, 0)
+texture = ExtResource("10_jccol")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Underground"]
+shape = SubResource("CircleShape2D_asfe6")
+disabled = true
+
+[node name="Underground2" type="Area2D" parent="." groups=["NPC"]]
+visible = false
+position = Vector2(153, 190)
+
+[node name="Underground" type="Sprite2D" parent="Underground2"]
+position = Vector2(17, 0)
+texture = ExtResource("10_jccol")
+region_enabled = true
+region_rect = Rect2(65, 0, 64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Underground2"]
+shape = SubResource("CircleShape2D_asfe6")
+disabled = true
+
+[node name="Nebula" type="Area2D" parent="." groups=["NPC"]]
+visible = false
+position = Vector2(967, 126)
+
+[node name="Nebula" type="Sprite2D" parent="Nebula"]
+position = Vector2(17, 0)
+texture = ExtResource("11_8shtu")
+region_rect = Rect2(0, 0, 27, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nebula"]
+shape = SubResource("CircleShape2D_asfe6")
+disabled = true
+
+[node name="Farmer" type="Area2D" parent="." groups=["NPC"]]
+visible = false
+position = Vector2(1065, 542)
+
+[node name="Farmer" type="Sprite2D" parent="Farmer"]
+position = Vector2(17, 0)
+texture = ExtResource("12_glpyk")
+region_rect = Rect2(0, 0, 27, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Farmer"]
+shape = SubResource("CircleShape2D_asfe6")
+disabled = true
+
+[node name="Trump" type="Area2D" parent="." groups=["NPC"]]
+visible = false
+position = Vector2(765, 336)
+
+[node name="Trump" type="Sprite2D" parent="Trump"]
+texture = ExtResource("13_52j7u")
+region_rect = Rect2(0, 0, 27, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trump"]
+shape = SubResource("CircleShape2D_asfe6")
+disabled = true
+
+[node name="Astronomer" type="Area2D" parent="." groups=["NPC"]]
+visible = false
+position = Vector2(358, 478)
+
+[node name="Astronomer" type="AnimatedSprite2D" parent="Astronomer"]
+sprite_frames = SubResource("SpriteFrames_acuvd")
+autoplay = "default"
+frame_progress = 0.951336
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Astronomer"]
+shape = SubResource("CircleShape2D_asfe6")
+disabled = true
+
+[node name="Hud" parent="." instance=ExtResource("15_f7wip")]
+visible = false
+
+[node name="Music" parent="." instance=ExtResource("16_yihgo")]
+
+[node name="Text" type="RichTextLabel" parent="."]
+visible = false
+anchors_preset = -1
+anchor_top = 0.00347233
+anchor_right = 0.681818
+anchor_bottom = 0.00347233
+offset_left = 9.0
+offset_top = 584.0
+offset_right = 579.0
+offset_bottom = 612.0
+scale = Vector2(2, 2)
+theme = ExtResource("17_5p2w3")
+theme_override_font_sizes/normal_font_size = 14
+text = "BOUGHT INTERSTELLAR CosmOil TRANSPORTER FOR 450β"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Speech" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_fmtmx")
+volume_db = -20.0
+
+[node name="GoodSpeech" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_fmtmx")
+volume_db = -20.0
+pitch_scale = 1.1
+
+[connection signal="body_entered" from="Vehicle" to="." method="_on_vehicle_body_entered"]
+[connection signal="body_entered" from="Underground" to="." method="_on_underground_body_entered"]
+[connection signal="body_entered" from="Underground2" to="." method="_on_underground_body_entered"]
+[connection signal="body_entered" from="Nebula" to="." method="_on_nebula_body_entered"]
+[connection signal="body_entered" from="Farmer" to="." method="_on_farmer_body_entered"]
+[connection signal="body_entered" from="Trump" to="." method="_on_trump_body_entered"]
+[connection signal="body_entered" from="Astronomer" to="." method="_on_astronomer_body_entered"]
+[connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]

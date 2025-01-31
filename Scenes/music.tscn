@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=3 uid="uid://cpb4fofhmv6le"]
+
+[ext_resource type="Script" path="res://Code/music.gd" id="1_vrqk8"]
+[ext_resource type="AudioStream" uid="uid://cfey3rjhmj4aq" path="res://Music/Space.mp3" id="2_tga2k"]
+[ext_resource type="AudioStream" uid="uid://dq1sgfl0rp22b" path="res://Music/Mars.mp3" id="3_jpyvw"]
+[ext_resource type="AudioStream" uid="uid://c2nr8bdltsetx" path="res://Music/HQ.mp3" id="4_nract"]
+[ext_resource type="AudioStream" uid="uid://bfl5pm5bvw63x" path="res://Music/Abyssari.mp3" id="5_drawu"]
+[ext_resource type="AudioStream" uid="uid://nwrvr6nt063s" path="res://Music/Magmus.mp3" id="6_pordn"]
+[ext_resource type="AudioStream" uid="uid://dtin871vk0edq" path="res://Music/Ranger-Prime.mp3" id="7_ffdhi"]
+[ext_resource type="AudioStream" uid="uid://bj8hnibvqawr8" path="res://Music/Goldalis.mp3" id="8_lt11y"]
+[ext_resource type="AudioStream" uid="uid://cyrbiaswqurcb" path="res://Music/Abandoned HQ.mp3" id="9_sxwqa"]
+[ext_resource type="AudioStream" uid="uid://ff4ojn0a8c3h" path="res://Music/Black Hole.mp3" id="10_f32y5"]
+[ext_resource type="AudioStream" uid="uid://ccd6ajya6ny1p" path="res://Music/True Space.mp3" id="11_21rvw"]
+[ext_resource type="AudioStream" uid="uid://b7juoqidnre36" path="res://Music/Combat.mp3" id="12_ley8m"]
+
+[node name="Music" type="Node" groups=["music"]]
+script = ExtResource("1_vrqk8")
+
+[node name="Clock" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="ShortTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Space" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tga2k")
+volume_db = -10.0
+
+[node name="SpaceLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tga2k")
+volume_db = -10.0
+
+[node name="Mars" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jpyvw")
+volume_db = -10.0
+
+[node name="MarsLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jpyvw")
+volume_db = -10.0
+
+[node name="HQ" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nract")
+volume_db = -10.0
+
+[node name="HQLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nract")
+volume_db = -10.0
+
+[node name="Abyssari" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_drawu")
+volume_db = -10.0
+
+[node name="AbyssariLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_drawu")
+volume_db = -10.0
+
+[node name="Magmus" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_pordn")
+volume_db = -10.0
+
+[node name="MagmusLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_pordn")
+volume_db = -10.0
+
+[node name="RangerPrime" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ffdhi")
+volume_db = -10.0
+
+[node name="RangerPrimeLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ffdhi")
+volume_db = -10.0
+
+[node name="Goldalis" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_lt11y")
+volume_db = -10.0
+
+[node name="GoldalisLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_lt11y")
+volume_db = -10.0
+
+[node name="AbandonedHQ" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_sxwqa")
+volume_db = -10.0
+
+[node name="AbandonedHQLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_sxwqa")
+volume_db = -10.0
+
+[node name="BlackHole" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_f32y5")
+volume_db = -10.0
+
+[node name="BlackHoleLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_f32y5")
+volume_db = -10.0
+
+[node name="TrueSpace" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_21rvw")
+volume_db = -10.0
+
+[node name="TrueSpaceLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_21rvw")
+volume_db = -10.0
+
+[node name="Combat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ley8m")
+volume_db = -10.0
+
+[node name="CombatLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ley8m")
+volume_db = -10.0
+
+[connection signal="timeout" from="Clock" to="." method="_on_clock_timeout"]
+[connection signal="timeout" from="ShortTimer" to="." method="_on_short_timer_timeout"]

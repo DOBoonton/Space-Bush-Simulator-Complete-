@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://c335d2h217tku"]
+
+[ext_resource type="Script" path="res://Code/Menus/ending1.gd" id="1_lahjj"]
+[ext_resource type="Texture2D" uid="uid://bodfisw7adtyw" path="res://Sprites/Backgrounds/Space/Space.png" id="2_fordx"]
+[ext_resource type="Theme" uid="uid://cp6je6ot62dfc" path="res://Fonts/GALACTIC VANGUARDIAN.tres" id="4_5iwy5"]
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lahjj")
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(576.5, 324)
+scale = Vector2(1.97561, 1.97561)
+texture = ExtResource("2_fordx")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(144.125, 162)
+
+[node name="Hint" type="RichTextLabel" parent="Node2D"]
+offset_top = -107.0
+offset_right = 166.0
+offset_bottom = -1.00001
+scale = Vector2(5, 5)
+theme = ExtResource("4_5iwy5")
+theme_override_font_sizes/normal_font_size = 14
+text = "				WIN
+
+(I might add actual endings in the future)
+
+Press Enter"
