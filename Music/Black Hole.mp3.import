@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ff4ojn0a8c3h"
+path="res://.godot/imported/Black Hole.mp3-11ea3962c857e70a66fc141d846e8a2a.mp3str"
+
+[deps]
+
+source_file="res://Music/Black Hole.mp3"
+dest_files=["res://.godot/imported/Black Hole.mp3-11ea3962c857e70a66fc141d846e8a2a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

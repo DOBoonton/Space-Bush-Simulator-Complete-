@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cyrbiaswqurcb"
+path="res://.godot/imported/Abandoned HQ.mp3-8786c703bedbdaf0b1e6bc8f2ca17dbf.mp3str"
+
+[deps]
+
+source_file="res://Music/Abandoned HQ.mp3"
+dest_files=["res://.godot/imported/Abandoned HQ.mp3-8786c703bedbdaf0b1e6bc8f2ca17dbf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
