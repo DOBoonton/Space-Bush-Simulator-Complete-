@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw5psnkur1qv7"]
+
+[ext_resource type="Texture2D" uid="uid://dk2wl5jxklybb" path="res://icon.svg" id="1_7h5ug"]
+[ext_resource type="Script" path="res://Code/bandit.gd" id="1_bgyl0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cbrw2"]
+radius = 32.1403
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q8u23"]
+radius = 200.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4myw"]
+radius = 500.0
+
+[node name="Bandit" type="CharacterBody2D"]
+script = ExtResource("1_bgyl0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_7h5ug")
+
+[node name="Collision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+shape = SubResource("CircleShape2D_cbrw2")
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+shape = SubResource("CircleShape2D_q8u23")
+
+[node name="FarDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FarDetection"]
+shape = SubResource("CircleShape2D_m4myw")
+
+[connection signal="body_entered" from="Detection" to="." method="_on_DetectRadius_body_entered"]
+[connection signal="body_exited" from="Detection" to="." method="_on_DetectRadius_body_exited"]
+[connection signal="body_entered" from="FarDetection" to="." method="_on_DetectRadiusFar_body_entered"]
+[connection signal="body_exited" from="FarDetection" to="." method="_on_DetectRadiusFar_body_exited"]

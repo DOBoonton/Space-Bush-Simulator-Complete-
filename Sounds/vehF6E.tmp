@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=3 uid="uid://b2gelsvst8iis"]
+
+[ext_resource type="Script" path="res://Vehicle.gd" id="1_j6ge1"]
+[ext_resource type="PackedScene" uid="uid://bwjo3h1fmkvmj" path="res://Code/laser.tscn" id="2_4xk6n"]
+[ext_resource type="Texture2D" uid="uid://t632ao6ryrr8" path="res://Sprites/Space/SpaceBeater.png" id="2_yrh6x"]
+[ext_resource type="Texture2D" uid="uid://c2qykyw3ovrvh" path="res://Sprites/HUD/Gear Shift.png" id="3_b4rds"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7fun"]
+atlas = ExtResource("2_yrh6x")
+region = Rect2(7, 1, 18, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dseqp"]
+atlas = ExtResource("2_yrh6x")
+region = Rect2(39, 1, 18, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gpm23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7fun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dseqp")
+}],
+"loop": true,
+"name": &"ship",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_43rdw"]
+radius = 14.0
+height = 44.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y1xo"]
+atlas = ExtResource("3_b4rds")
+region = Rect2(0, 0, 22, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oac2p"]
+atlas = ExtResource("3_b4rds")
+region = Rect2(23, 0, 22, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5454n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y1xo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oac2p")
+}],
+"loop": true,
+"name": &"Drive",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Neutral",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Reverse",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Sport",
+"speed": 3.0
+}]
+
+[node name="Vehicle" type="CharacterBody2D"]
+script = ExtResource("1_j6ge1")
+Laser = ExtResource("2_4xk6n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 7)
+rotation = 4.71239
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_gpm23")
+animation = &"ship"
+frame_progress = 0.329939
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+rotation = 4.71239
+shape = SubResource("CapsuleShape2D_43rdw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="GearboxTime" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Gear" type="AnimatedSprite2D" parent="."]
+position = Vector2(556, 302)
+sprite_frames = SubResource("SpriteFrames_5454n")
+animation = &"Drive"
+
+[node name="Laser" type="Marker2D" parent="."]
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="GearboxTime" to="." method="_on_gearbox_time_timeout"]

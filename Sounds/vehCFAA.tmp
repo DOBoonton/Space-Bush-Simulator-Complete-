@@ -1,0 +1,182 @@
+[gd_scene load_steps=19 format=3 uid="uid://b2gelsvst8iis"]
+
+[ext_resource type="Script" path="res://Vehicle.gd" id="1_j6ge1"]
+[ext_resource type="PackedScene" uid="uid://bwjo3h1fmkvmj" path="res://Code/laser.tscn" id="2_4xk6n"]
+[ext_resource type="Texture2D" uid="uid://t632ao6ryrr8" path="res://Sprites/Space/SpaceBeater.png" id="2_yrh6x"]
+[ext_resource type="Texture2D" uid="uid://c2qykyw3ovrvh" path="res://Sprites/HUD/Gear Shift.png" id="3_b4rds"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7fun"]
+atlas = ExtResource("2_yrh6x")
+region = Rect2(7, 1, 18, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dseqp"]
+atlas = ExtResource("2_yrh6x")
+region = Rect2(39, 1, 18, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gpm23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7fun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dseqp")
+}],
+"loop": true,
+"name": &"ship",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_43rdw"]
+radius = 14.0
+height = 44.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x20bk"]
+atlas = ExtResource("3_b4rds")
+region = Rect2(0, 64, 22, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eds6o"]
+atlas = ExtResource("3_b4rds")
+region = Rect2(23, 64, 22, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlj46"]
+atlas = ExtResource("3_b4rds")
+region = Rect2(0, 32, 22, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nxo7"]
+atlas = ExtResource("3_b4rds")
+region = Rect2(23, 32, 22, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ubaj"]
+atlas = ExtResource("3_b4rds")
+region = Rect2(0, 0, 22, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnpyf"]
+atlas = ExtResource("3_b4rds")
+region = Rect2(23, 0, 22, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7pjs"]
+atlas = ExtResource("3_b4rds")
+region = Rect2(0, 96, 22, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1t2l"]
+atlas = ExtResource("3_b4rds")
+region = Rect2(23, 96, 22, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5454n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x20bk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eds6o")
+}],
+"loop": true,
+"name": &"Drive",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlj46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nxo7")
+}],
+"loop": true,
+"name": &"Neutral",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ubaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnpyf")
+}],
+"loop": true,
+"name": &"Reverse",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7pjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1t2l")
+}],
+"loop": true,
+"name": &"Sport",
+"speed": 8.0
+}]
+
+[sub_resource type="FontFile" id="FontFile_7v40a"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
+
+[node name="Vehicle" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_j6ge1")
+Laser = ExtResource("2_4xk6n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 7)
+rotation = 4.71239
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_gpm23")
+animation = &"ship"
+frame_progress = 0.329939
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+rotation = 4.71239
+shape = SubResource("CapsuleShape2D_43rdw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="GearboxTime" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="FuelTime" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="Gear" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.803922)
+position = Vector2(539.5, 278)
+scale = Vector2(2.25, 2.25)
+sprite_frames = SubResource("SpriteFrames_5454n")
+animation = &"Sport"
+
+[node name="SolarCount" type="RichTextLabel" parent="Gear"]
+offset_left = -490.0
+offset_top = -8.0
+offset_right = -406.0
+offset_bottom = 20.0
+theme_override_fonts/normal_font = SubResource("FontFile_7v40a")
+theme_override_font_sizes/normal_font_size = 20
+text = "AU: 1.444"
+autowrap_mode = 0
+
+[node name="Laser" type="Marker2D" parent="."]
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="GearboxTime" to="." method="_on_gearbox_time_timeout"]
+[connection signal="timeout" from="FuelTime" to="." method="_on_fuel_time_timeout"]
